@@ -1,0 +1,128 @@
+package TrabajoFinal;
+
+import java.util.Scanner;
+
+public class App {
+
+	static Scanner Lector = new Scanner(System.in);
+
+	public void control() {
+		int s, o;
+		int opcion = 0, opcion1 = 0;
+		String[] cv = { " ", "Compras", "Ventas", "Compra", "Venta" };
+		int a[] = new int[999];
+		int b[] = new int[999];
+		String m[] = new String[999];
+		System.out.println("Control de compras y ventas");
+		System.out.println("1.Compras");
+		System.out.println("2.Ventas");
+		o = Lector.nextInt();
+		while (o <= 0 || o >= 3) {
+			System.out.println("Porfavor introduzca un dato valido");
+			o = Lector.nextInt();
+		}
+		switch (o) {
+		case 1:
+			System.out.println("Usted accedio al programa de " + cv[1]);
+			System.out.println("Ingrese cuantas " + cv[1] + " desea realizar");
+			s = Lector.nextInt();
+			s = s + 1;
+			System.out.println("Desea agregarle nombres a las compras?");
+			System.out.println("1. Si");
+			System.out.println("2. No");
+			opcion = Lector.nextInt();
+			while (opcion <= 0 || opcion >= 3) {
+				System.out.println("Porfavor introduzca un dato valido");
+				opcion = Lector.nextInt();
+			}
+			switch (opcion) {
+			case 1:
+				for (int o1 = 1; o1 < s; o1++) {
+					System.out.println("Introduzca el nombre de " + cv[3] + " " + o1);
+					m[o1] = Lector.next();
+
+					System.out.println("Introduzca la cantidad de " + m[o1] + " comprad@s");
+					a[o1] = Lector.nextInt();
+
+					System.out.println("Introduzca el costo por unidad de " + m[o1] + " comprad@s");
+					b[o1] = Lector.nextInt();
+				}
+
+				for (int o3 = 1; o3 < s; o3++) {
+					System.out.println("Se compraron " + a[o3] + " unidades de " + m[o3]);
+					System.out.println("El costo de " + m[o3] + " por unidad es " + b[o3]);
+					System.out.println("El costo total de " + m[o3] + " es " + a[o3] * b[o3]);
+					System.out.println();
+				}
+			case 2:
+				for (int o1 = 1; o1 < s; o1++) {
+					System.out.println("Introduzca la cantidad de " + cv[3] +" "+ o1);
+					a[o1] = Lector.nextInt();
+
+					System.out.println("Introduzca el costo por unidad de " + cv[3] + " " + o1);
+					b[o1] = Lector.nextInt();
+				}
+				for (int o3 = 1; o3 < s; o3++) {
+					System.out.println("Se compraron " + a[o3] + " unidades de " + cv[3]);
+					System.out.println("El costo de " + cv[3] + " por unidad es " + b[o3]);
+					System.out.println("El costo total de " + cv[3] + " es " + a[o3] * b[o3]);
+					System.out.println();
+				}
+			}
+			break;
+		case 2:
+			System.out.println("Usted accedio al programa de " + cv[2]);
+			System.out.println("Ingrese cuantas " + cv[2] + " desea realizar");
+			s = Lector.nextInt();
+			s = s + 1;
+			System.out.println("Desea agregarle nombres a las ventas?");
+			System.out.println("1. Si");
+			System.out.println("2. No");
+			opcion1 = Lector.nextInt();
+			while (opcion1 <= 0 || opcion1 >= 3) {
+				System.out.println("Porfavor introduzca un dato valido");
+				opcion1 = Lector.nextInt();
+			}
+			switch (opcion1) {
+			case 1:
+				for (int o1 = 1; o1 < s; o1++) {
+					System.out.println("Introduzca el nombre de la " + cv[4] + " " + o1);
+					m[o1] = Lector.next();
+
+					System.out.println("Introduzca la cantidad de " + m[o1] + " vendidas");
+					a[o1] = Lector.nextInt();
+
+					System.out.println("Introduzca el precio por unidad de " + m[o1] + " vendidas");
+					b[o1] = Lector.nextInt();
+				}
+
+				for (int o3 = 1; o3 < s; o3++) {
+					System.out.println("Se vendieron " + a[o3] + " unidades de " + m[o3]);
+					System.out.println("La venta de " + m[o3] + " por unidad es " + b[o3]);
+					System.out.println("La venta total de " + m[o3] + " es " + a[o3] * b[o3]);
+					System.out.println();
+				}
+			case 2:
+				for (int o1 = 1; o1 < s; o1++) {
+					System.out.println("Introduzca la cantidad de " + cv[4] +" "+ o1);
+					a[o1] = Lector.nextInt();
+
+					System.out.println("Introduzca la venta por unidad de " + cv[4] + " " + o1);
+					b[o1] = Lector.nextInt();
+				}
+				for (int o3 = 1; o3 < s; o3++) {
+					System.out.println("Se vendieron " + a[o3] + " unidades de " + cv[4]);
+					System.out.println("La venta de " + cv[4] + " por unidad es " + b[o3]);
+					System.out.println("La venta total de " + cv[4] + " es " + a[o3] * b[o3]);
+					System.out.println();
+				} 
+			}
+		}
+	}
+
+	public static void main(String[] args) {
+		App sandia = new App();
+		sandia.control();
+	}
+
+}
