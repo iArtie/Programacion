@@ -7,7 +7,9 @@ public class App {
 
 	static Scanner Lector = new Scanner(System.in);
 	private String t,u;
+	private String g,f;
 	String[] bn = { " ",t,u};
+	String[] sr = { " ",g, f}; 
 	public void nombreempresa() {
 		String t;
 		try {
@@ -21,6 +23,91 @@ public class App {
 		}
 	}
 	
+		
+	public void resultado() {
+		String [] vt = { " ", "ventas     ", "costos"};
+		int d, c,e,g,f,j;
+		int vtr [] = new int[999];
+		String [] ga = { " ", "Gastos Administrativos   ", "Gastos de Venta"};
+		int gar [] = new int[999];
+		String [] am = { " ", "Amortizacion"};
+		int amr [] = new int[999];
+		String [] in = { " ", "Intereses"};
+		int inr [] = new int[999];
+		String [] im = { " ", "Impuestos"};
+		int imr [] = new int[999];
+		System.out.println("Estado de Resultado");
+		System.out.println();
+		System.out.println("Porfavor ingrese el total de ventas");
+		for(int r1=1;r1<vt.length;r1++) {
+			System.out.println(r1+"." + vt[r1]);
+			vtr[r1]=Lector.nextInt();
+		}
+		d=vtr[1]-vtr[2];
+		System.out.println("La utilidad bruta es de "+ d );
+		System.out.println();
+		System.out.println("Seguimos con los gastos");
+		System.out.println();
+		System.out.println("Porfavor ingrese los datos que se le solicitan");
+		for(int r=1;r<ga.length;r++) {
+			System.out.println(r+"." + ga[r]);
+			gar[r]=Lector.nextInt();
+		}
+		c=gar[1]+gar[2];
+		System.out.println("Los gastos generales es de "+ c );
+		System.out.println();
+		e=d-c;
+		System.out.println("La EBITDA es de "+ e);
+		System.out.println();
+		System.out.println("Seguimos con los gastos");
+		System.out.println();
+		System.out.println("Porfavor ingrese los datos que se le solicitan");
+		for(int r=1;r<am.length;r++) {
+			System.out.println(r+"." + am[r]);
+			amr[r]=Lector.nextInt();
+		}
+		g= e-amr[1];
+		System.out.println("El resultado de explotacion es de "+ g);
+		System.out.println();
+	    System.out.println("Seguimos con los gastos");
+	    System.out.println();
+		System.out.println("Porfavor ingrese los datos que se le solicitan");
+		for(int r=1;r<in.length;r++) {
+			System.out.println(r+"." + in[r]);
+			inr[r]=Lector.nextInt();
+		}
+		f= g-inr[1];
+		System.out.println("El resultado antes de impuesto es de "+ f);
+		System.out.println();
+	    System.out.println("Seguimos con los gastos");
+	    System.out.println();
+		System.out.println("Porfavor ingrese los datos que se le solicitan");
+		for(int r=1;r<im.length;r++) {
+			System.out.println(r+"." + im[r]);
+			imr[r]=Lector.nextInt();
+		}
+		j= f-imr[1];
+		System.out.println("El resultado de la utilidad neta es de "+ j);
+		
+		
+		System.out.println("                                   ");
+		System.out.println("                                   ");
+		System.out.println("");
+		System.out.println("Ventas    " + vtr[1]);
+		System.out.println("Costos    " + vtr[2]);
+		System.out.println("                   ");
+		System.out.println("Utilidad Bruta    " + d);
+		System.out.println("Gastos Generales   " + gar[1]);
+		System.out.println("                   ");
+		System.out.println("EBITDA  " + e);
+		System.out.println("Amortizacion   " + amr[1]);
+		System.out.println("                   ");
+		System.out.println("Resultado de explotacion  " + g);
+		System.out.println("Impuestos   " + imr[1]);
+		System.out.println("                   ");
+		System.out.println("Utilidad neta  " + j);
+		
+	}
 	public void balance() {
 		String[] ac = { " ", "Caja     ", "Mercancia", "Cliente  "};
 		int w,x,y,z,awa,ewe,owo;
@@ -245,8 +332,11 @@ public class App {
 
 	public static void main(String[] args) {
 		App sandia = new App();
+		sandia.resultado();
 		sandia.nombreempresa();
 		sandia.balance();
+		
+		
 		//sandia.control();
 	}
 
