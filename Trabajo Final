@@ -1,11 +1,132 @@
 package TrabajoFinal;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class App {
 
 	static Scanner Lector = new Scanner(System.in);
-
+	private String t,u;
+	String[] bn = { " ",t,u};
+	public void nombreempresa() {
+		String t;
+		try {
+		System.out.println("Como desea llamar su empresa");
+		bn[1]= Lector.next();
+		bn[2]= Lector.next();
+			
+		} catch (InputMismatchException bn) {
+			System.out.println("Solo puede introducir dos palabras");
+			Lector.next();
+		}
+	}
+	
+	public void balance() {
+		String[] ac = { " ", "Caja     ", "Mercancia", "Cliente  "};
+		int w,x,y,z,awa,ewe,owo;
+		int acr[] = new int[999];
+		String[] af = { " ", "Terrenos   ", "Mobiliario ", "Equip.d rep"};
+		int afr[] = new int[999];
+		String[] pc = { " ", "Proveedores   ", "Doc. Por pagar"};
+		int pcr[] = new int[999];
+		String[] pf = { " ", "Hipotecas por pagar", "Doc. Por pagar L/P "};
+		int pfr[] = new int[999];
+		System.out.println("App de balance general");
+		System.out.println();
+		System.out.println("Empezamos con Activos circulantes");
+		System.out.println();
+		System.out.println("Porfavor ingrese los datos que se le solicitan");
+		for(int r1=1;r1<ac.length;r1++) {
+			System.out.println(r1+"." + ac[r1]);
+			acr[r1]=Lector.nextInt();
+		}
+		w=acr[1]+acr[2]+acr[3];
+		System.out.println("El total Activos Circulantes es "+ w );
+		System.out.println();
+		System.out.println("Seguimos con Activos fijos");
+		System.out.println();
+		System.out.println("Porfavor ingrese los datos que se le solicitan");
+		for(int r=1;r<af.length;r++) {
+			System.out.println(r+"." + af[r]);
+			afr[r]=Lector.nextInt();
+		}
+		x=afr[1]+afr[2]+afr[3];
+		System.out.println("Total Activos Fijos es "+  x);
+		System.out.println();
+		System.out.println("Empezamos con Pasivos circulantes");
+		System.out.println();
+		System.out.println("Porfavor ingrese los datos que se le solicitan");
+		for(int rr1=1;rr1<pc.length;rr1++) {
+			System.out.println(rr1+"." + pc[rr1]);
+			pcr[rr1]=Lector.nextInt();
+		}
+		y=pcr[1]+pcr[2]+pcr[3];
+		System.out.println("El total Pasivos Circulantes es "+ y );
+		System.out.println("Seguimos con Pasivos Fijos");
+		System.out.println();
+		System.out.println("Porfavor ingrese los datos que se le solicitan");
+		for(int rr2=1;rr2<pf.length;rr2++) {
+			System.out.println(rr2+"." + pf[rr2]);
+			pfr[rr2]=Lector.nextInt();
+		}
+		z=pfr[1]+pfr[2]+pfr[3];
+		System.out.println("El total Pasivos Fijos es "+ z );
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		System.out.println("                                             "+ bn[1]+" " + bn[2]+ "                                " );
+		System.out.println("---------------------------------------------------------------------------------------------------------------------------");
+		System.out.println("                                           Balance general                                       ");
+		System.out.println("---------------------------------------------------------------------------------------------------------------------------");
+		System.out.println("   ACTIVOS"+ "                         1   "+ "            2   "+"                 3  "+"               4                  ");
+		System.out.println("   Activos circulantes");
+		for(int r2=1;r2<ac.length;r2++) {
+			System.out.println(r2+"." +" "+ ac[r2]+"                                                 "+acr[r2]);
+			
+		}
+		
+		System.out.println("Total Activos Circulantes                                                    "+ w );
+		System.out.println();
+		System.out.println("  Activos Fijos");
+		for(int r3=1;r3<af.length;r3++) {
+			System.out.println(r3+"." +" "+ af[r3]+"                                               "+afr[r3]);
+			
+		}
+		
+		System.out.println("Total Activos Fijos                                                          "+  x);
+		ewe=w+x;
+		System.out.println();
+		System.out.println("TOTAL ACTIVOS                                                                                     "+ ewe );
+		System.out.println("   Pasivos circulantes");
+		for(int r5=1;r5<pc.length;r5++) {
+			System.out.println(r5+"." +" "+ pc[r5]+"                                            "+pcr[r5]);
+			
+		}
+		
+		System.out.println("Total Pasivos Circulantes                                                    "+ y );
+		System.out.println();
+		System.out.println("   Pasivos Fijos");
+		for(int r6=1;r6<pf.length;r6++) {
+			System.out.println(r6+"." +" "+ pf[r6]+"                                       "+pfr[r6]);
+			
+		}
+		
+		System.out.println("Total Pasivos Fijos                                                          "+ z );
+		awa=(w+x)-(y+z);
+		owo=y+z;
+		System.out.println("TOTAL PASIVOS                                                                                     "+ owo );
+		System.out.println("CAPITAL CONTABLE                                                                                  "+ awa );
+		System.out.println("---------------------------------------------------------------------------------------------------------------------------");
+	}
+	
+	
+	
 	public void control() {
 		int s, o;
 		int opcion = 0, opcion1 = 0;
@@ -116,13 +237,17 @@ public class App {
 					System.out.println("La venta total de " + cv[4] + " es " + a[o3] * b[o3]);
 					System.out.println();
 				} 
+				
+				break;
 			}
 		}
 	}
 
 	public static void main(String[] args) {
 		App sandia = new App();
-		sandia.control();
+		sandia.nombreempresa();
+		sandia.balance();
+		//sandia.control();
 	}
 
 }
