@@ -6,134 +6,133 @@ import java.util.Scanner;
 public class App {
 
 	static Scanner Lector = new Scanner(System.in);
-	private String t,u;
-	private String g,f;
-	String[] bn = { " ",t,u};
-	String[] sr = { " ",g, f}; 
+	private String t, u;
+	private String g, f;
+	String[] bn = { " ", t, u };
+	String[] sr = { " ", g, f };
+
 	public void nombreempresa() {
 		String t;
 		try {
-		System.out.println("Como desea llamar su empresa (Porfavor introduzca solo 2 palabras)");
-		System.out.println("En algun dado caso que tenga 3 o mas palabras solo se usaran 2 y se reiniciara el programa");
-		System.out.println("El programa se reiniciara conforme las palabras que introduzca de mas");
-		bn[1]= Lector.next();
-		bn[2]= Lector.next();
-			
+			System.out.println("Como desea llamar su empresa (Porfavor introduzca solo 2 palabras)");
+			System.out.println(
+					"En algun dado caso que tenga 3 o mas palabras solo se usaran 2 y se reiniciara el programa");
+			System.out.println("El programa se reiniciara conforme las palabras que introduzca de mas");
+			bn[1] = Lector.next();
+			bn[2] = Lector.next();
+
 		} catch (InputMismatchException e) {
 			System.out.println("Solo se registraran las 2 primeras palabras que se le pidieron");
 		}
 	}
-	
+
 	public void variacion() {
-		int cs,utt,dv,utr;
-		boolean Continuar=false;
+		int cs, utt, dv, utr;
+		boolean Continuar = false;
 		do {
-		try {
-			
-		
-		System.out.println("App de variacion de capital");
-		System.out.println("Introduzca el Capital Social");
-		cs=Lector.nextInt();
-		System.out.println("Introduzca la utilidad del ejercicio");
-		utt=Lector.nextInt();
-		System.out.println("Introduzca el total de dividendos");
-		dv=Lector.nextInt();
-		utr=(cs+utt)-(dv);
-		
-		
-		System.out.println("El valor de utilidades retenidas es "+utr);
-		System.out.println("");
-		System.out.println("         "+ bn[1]+" " + bn[2]+ "      " );
-		System.out.println("-----------------------------------");
-		System.out.println("");
-		System.out.println("Capital Social          "+ cs);
-		System.out.println("");
-		System.out.println("Utilidad del ejercicio  "+ utt);
-		System.out.println("");
-		System.out.println("Dividendos              "+ dv);
-		System.out.println("");
-		System.out.println("Utilidades retenidas    "+ utr);
-		System.out.println("");
-		System.out.println("-----------------------------------");
-		System.out.println("Variacion de capital    "+ (utr-cs));
-		System.out.println("-----------------------------------");
-}catch (InputMismatchException e1) {
-	System.out.println("Por favor, ingrese solo numeros enteros");
-	  Lector.next();
-	  System.out.println();
-	  Continuar = true;
-}
-}while (Continuar);
-		
-		}
-	
+			try {
+
+				System.out.println("App de variacion de capital");
+				System.out.println("Introduzca el Capital Social");
+				cs = Lector.nextInt();
+				System.out.println("Introduzca la utilidad del ejercicio");
+				utt = Lector.nextInt();
+				System.out.println("Introduzca el total de dividendos");
+				dv = Lector.nextInt();
+				utr = (cs + utt) - (dv);
+
+				System.out.println("El valor de utilidades retenidas es " + utr);
+				System.out.println("");
+				System.out.println("         " + bn[1] + " " + bn[2] + "      ");
+				System.out.println("-----------------------------------");
+				System.out.println("");
+				System.out.println("Capital Social          " + cs);
+				System.out.println("");
+				System.out.println("Utilidad del ejercicio  " + utt);
+				System.out.println("");
+				System.out.println("Dividendos              " + dv);
+				System.out.println("");
+				System.out.println("Utilidades retenidas    " + utr);
+				System.out.println("");
+				System.out.println("-----------------------------------");
+				System.out.println("Variacion de capital    " + (utr - cs));
+				System.out.println("-----------------------------------");
+			} catch (InputMismatchException e1) {
+				System.out.println("Por favor, ingrese solo numeros enteros");
+				Lector.next();
+				System.out.println();
+				Continuar = true;
+			}
+		} while (Continuar);
+
+	}
+
 	public void resultado() {
-		String [] vt = { " ", "ventas     ", "costos"};
-		int d, c,e,g,f,j;
-		int vtr [] = new int[999];
-		String [] ga = { " ", "Gastos Administrativos   ", "Gastos de Venta"};
-		int gar [] = new int[999];
-		String [] am = { " ", "Amortizacion"};
-		int amr [] = new int[999];
-		String [] in = { " ", "Intereses"};
-		int inr [] = new int[999];
-		String [] im = { " ", "Impuestos"};
-		int imr [] = new int[999];
+		String[] vt = { " ", "ventas     ", "costos" };
+		int d, c, e, g, f, j;
+		int vtr[] = new int[999];
+		String[] ga = { " ", "Gastos Administrativos   ", "Gastos de Venta" };
+		int gar[] = new int[999];
+		String[] am = { " ", "Amortizacion" };
+		int amr[] = new int[999];
+		String[] in = { " ", "Intereses" };
+		int inr[] = new int[999];
+		String[] im = { " ", "Impuestos" };
+		int imr[] = new int[999];
 		System.out.println("Estado de Resultado");
 		System.out.println();
 		System.out.println("Porfavor ingrese el total de ventas");
-		for(int r1=1;r1<vt.length;r1++) {
-			System.out.println(r1+"." + vt[r1]);
-			vtr[r1]=Lector.nextInt();
+		for (int r1 = 1; r1 < vt.length; r1++) {
+			System.out.println(r1 + "." + vt[r1]);
+			vtr[r1] = Lector.nextInt();
 		}
-		d=vtr[1]-vtr[2];
-		System.out.println("La utilidad bruta es de "+ d );
+		d = vtr[1] - vtr[2];
+		System.out.println("La utilidad bruta es de " + d);
 		System.out.println();
 		System.out.println("Seguimos con los gastos");
 		System.out.println();
 		System.out.println("Porfavor ingrese los datos que se le solicitan");
-		for(int r=1;r<ga.length;r++) {
-			System.out.println(r+"." + ga[r]);
-			gar[r]=Lector.nextInt();
+		for (int r = 1; r < ga.length; r++) {
+			System.out.println(r + "." + ga[r]);
+			gar[r] = Lector.nextInt();
 		}
-		c=gar[1]+gar[2];
-		System.out.println("El valor de los gastos generales es de "+ c );
+		c = gar[1] + gar[2];
+		System.out.println("El valor de los gastos generales es de " + c);
 		System.out.println();
-		e=d-c;
-		System.out.println("La EBITDA es de "+ e);
+		e = d - c;
+		System.out.println("La EBITDA es de " + e);
 		System.out.println();
 		System.out.println("Seguimos con amortizacion");
 		System.out.println();
 		System.out.println("Porfavor ingrese los datos que se le solicitan");
-		for(int r=1;r<am.length;r++) {
-			System.out.println(r+"." + am[r]);
-			amr[r]=Lector.nextInt();
+		for (int r = 1; r < am.length; r++) {
+			System.out.println(r + "." + am[r]);
+			amr[r] = Lector.nextInt();
 		}
-		g= e-amr[1];
-		System.out.println("El resultado de explotacion es de "+ g);
+		g = e - amr[1];
+		System.out.println("El resultado de explotacion es de " + g);
 		System.out.println();
-	    System.out.println("Seguimos con los intereses");
-	    System.out.println();
-		System.out.println("Porfavor ingrese los datos que se le solicitan");
-		for(int r=1;r<in.length;r++) {
-			System.out.println(r+"." + in[r]);
-			inr[r]=Lector.nextInt();
-		}
-		f= g-inr[1];
-		System.out.println("El resultado antes de impuesto es de "+ f);
+		System.out.println("Seguimos con los intereses");
 		System.out.println();
-	    System.out.println("Seguimos con los impuestos");
-	    System.out.println();
 		System.out.println("Porfavor ingrese los datos que se le solicitan");
-		for(int r=1;r<im.length;r++) {
-			System.out.println(r+"." + im[r]);
-			imr[r]=Lector.nextInt();
+		for (int r = 1; r < in.length; r++) {
+			System.out.println(r + "." + in[r]);
+			inr[r] = Lector.nextInt();
 		}
-		j= f-imr[1];
-		System.out.println("El resultado de la utilidad neta es de "+ j);
-		
-		
-		System.out.println("         "+ bn[1]+" " + bn[2]+ "      " );
+		f = g - inr[1];
+		System.out.println("El resultado antes de impuesto es de " + f);
+		System.out.println();
+		System.out.println("Seguimos con los impuestos");
+		System.out.println();
+		System.out.println("Porfavor ingrese los datos que se le solicitan");
+		for (int r = 1; r < im.length; r++) {
+			System.out.println(r + "." + im[r]);
+			imr[r] = Lector.nextInt();
+		}
+		j = f - imr[1];
+		System.out.println("El resultado de la utilidad neta es de " + j);
+
+		System.out.println("         " + bn[1] + " " + bn[2] + "      ");
 		System.out.println("-----------------------------------");
 		System.out.println("");
 		System.out.println("Ventas                    " + vtr[1]);
@@ -149,178 +148,218 @@ public class App {
 		System.out.println("Impuestos                 " + imr[1]);
 		System.out.println("-----------------------------------");
 		System.out.println("Utilidad neta             " + j);
-		
+
 	}
+
 	public void balance() {
-		String[] ac = { " ", "Caja     ", "Mercancia", "Cliente  "};
-		int w,x,y,z,awa,ewe,owo, ab,as,ag=0,pt = 0,rt=0,fg;
+		String[] ac = { " ", "Caja     ", "Mercancia", "Cliente  " };
+		int w, x, y, z, awa, ewe, owo, ab, as, ag = 0, pt = 0, rt = 0, fg = 0;
 		int acr[] = new int[4];
-		String[] af = { " ", "Terrenos   ", "Mobiliario ", "Equip.d rep"};
-		int afr[] = new int[999];
-		String[] pc = { " ", "Proveedores   ", "Doc. Por pagar"};
-		int pcr[] = new int[999];
-		String[] pf = { " ", "Hipotecas por pagar", "Doc. Por pagar L/P "};
-		int pfr[] = new int[999];
+		String[] af = { " ", "Terrenos   ", "Mobiliario ", "Equip.d rep" };
+		int afr[] = new int[4];
+		String[] pc = { " ", "Proveedores   ", "Doc. Por pagar" };
+		int pcr[] = new int[4];
+		String[] pf = { " ", "Hipotecas por pagar", "Doc. Por pagar L/P " };
+		int pfr[] = new int[4];
 		System.out.println("App de balance general");
 		System.out.println();
 		System.out.println("Empezamos con Activos circulantes");
 		System.out.println();
 		System.out.println("Porfavor ingrese los datos que se le solicitan");
-		for(int r1=1;r1<ac.length;r1++) {
-			System.out.println(r1+"." + ac[r1]);
-			acr[r1]=Lector.nextInt();
+		for (int r1 = 1; r1 < ac.length; r1++) {
+			System.out.println(r1 + "." + ac[r1]);
+			acr[r1] = Lector.nextInt();
 		}
-		w=acr[1]+acr[2]+acr[3];
-		System.out.println("El total Activos Circulantes es "+ w );
+		w = acr[1] + acr[2] + acr[3];
+		System.out.println("El total Activos Circulantes es " + w);
 		System.out.println();
 		System.out.println("Seguimos con Activos fijos");
 		System.out.println();
 		System.out.println("Porfavor ingrese los datos que se le solicitan");
-		for(int r=1;r<af.length;r++) {
-			System.out.println(r+"." + af[r]);
-			afr[r]=Lector.nextInt();
+		for (int r = 1; r < af.length; r++) {
+			System.out.println(r + "." + af[r]);
+			afr[r] = Lector.nextInt();
 		}
-		x=afr[1]+afr[2]+afr[3];
-		System.out.println("Total Activos Fijos es "+  x);
+		x = afr[1] + afr[2] + afr[3];
+		System.out.println("Total Activos Fijos es " + x);
 		System.out.println();
 		System.out.println("Empezamos con Pasivos circulantes");
 		System.out.println();
 		System.out.println("Porfavor ingrese los datos que se le solicitan");
-		for(int rr1=1;rr1<pc.length;rr1++) {
-			System.out.println(rr1+"." + pc[rr1]);
-			pcr[rr1]=Lector.nextInt();
+		for (int rr1 = 1; rr1 < pc.length; rr1++) {
+			System.out.println(rr1 + "." + pc[rr1]);
+			pcr[rr1] = Lector.nextInt();
 		}
-		y=pcr[1]+pcr[2]+pcr[3];
-		System.out.println("El total Pasivos Circulantes es "+ y );
+		y = pcr[1] + pcr[2] + pcr[3];
+		System.out.println("El total Pasivos Circulantes es " + y);
 		System.out.println("Seguimos con Pasivos Fijos");
 		System.out.println();
 		System.out.println("Porfavor ingrese los datos que se le solicitan");
-		for(int rr2=1;rr2<pf.length;rr2++) {
-			System.out.println(rr2+"." + pf[rr2]);
-			pfr[rr2]=Lector.nextInt();
+		for (int rr2 = 1; rr2 < pf.length; rr2++) {
+			System.out.println(rr2 + "." + pf[rr2]);
+			pfr[rr2] = Lector.nextInt();
 		}
-		z=pfr[1]+pfr[2]+pfr[3];
-		System.out.println("El total Pasivos Fijos es "+ z );
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		System.out.println("                                             "+ bn[1]+" " + bn[2]+ "                                " );
-		System.out.println("---------------------------------------------------------------------------------------------------------------------------");
-		System.out.println("                                           Balance general                                       ");
-		System.out.println("---------------------------------------------------------------------------------------------------------------------------");
-		System.out.println("   ACTIVOS"+ "                         1   "+ "            2   "+"                 3  "+"               4                  ");
+		z = pfr[1] + pfr[2] + pfr[3];
+		System.out.println("El total Pasivos Fijos es " + z);
+
+		System.out.println("                                             " + bn[1] + " " + bn[2]
+				+ "                                ");
+		System.out.println(
+				"---------------------------------------------------------------------------------------------------------------------------");
+		System.out.println(
+				"                                           Balance general                                       ");
+		System.out.println(
+				"---------------------------------------------------------------------------------------------------------------------------");
+		System.out.println("   ACTIVOS" + "                         1   " + "            2   " + "                 3  "
+				+ "               4                  ");
 		System.out.println("   Activos circulantes");
-		for(int r2=1;r2<ac.length;r2++) {
-			System.out.println(r2+"." +" "+ ac[r2]+"                                                 "+acr[r2]);
-			
+		for (int r2 = 1; r2 < ac.length; r2++) {
+			System.out.println(r2 + "." + " " + ac[r2] + "                                                 " + acr[r2]);
+
 		}
-		
-		System.out.println("Total Activos Circulantes                                                    "+ w );
+
+		System.out.println("Total Activos Circulantes                                                    " + w);
 		System.out.println();
 		System.out.println("  Activos Fijos");
-		for(int r3=1;r3<af.length;r3++) {
-			System.out.println(r3+"." +" "+ af[r3]+"                                               "+afr[r3]);
-			
+		for (int r3 = 1; r3 < af.length; r3++) {
+			System.out.println(r3 + "." + " " + af[r3] + "                                               " + afr[r3]);
+
 		}
-		
-		System.out.println("Total Activos Fijos                                                          "+  x);
-		ewe=w+x;
+
+		System.out.println("Total Activos Fijos                                                          " + x);
+		ewe = w + x;
 		System.out.println();
-		System.out.println("TOTAL ACTIVOS                                                                                     "+ ewe );
+		System.out.println(
+				"TOTAL ACTIVOS                                                                                     "
+						+ ewe);
 		System.out.println("   Pasivos circulantes");
-		for(int r5=1;r5<pc.length;r5++) {
-			System.out.println(r5+"." +" "+ pc[r5]+"                                            "+pcr[r5]);
-			
+		for (int r5 = 1; r5 < pc.length; r5++) {
+			System.out.println(r5 + "." + " " + pc[r5] + "                                            " + pcr[r5]);
+
 		}
-		
-		System.out.println("Total Pasivos Circulantes                                                    "+ y );
+
+		System.out.println("Total Pasivos Circulantes                                                    " + y);
 		System.out.println();
 		System.out.println("   Pasivos Fijos");
-		for(int r6=1;r6<pf.length;r6++) {
-			System.out.println(r6+"." +" "+ pf[r6]+"                                       "+pfr[r6]);
-			
+		for (int r6 = 1; r6 < pf.length; r6++) {
+			System.out.println(r6 + "." + " " + pf[r6] + "                                       " + pfr[r6]);
+
 		}
-		
-		System.out.println("Total Pasivos Fijos                                                          "+ z );
-		awa=(w+x)-(y+z);
-		owo=y+z;
-		System.out.println("TOTAL PASIVOS                                                                                     "+ owo );
-		System.out.println("CAPITAL CONTABLE                                                                                  "+ awa );
-		System.out.println("---------------------------------------------------------------------------------------------------------------------------");
+
+		System.out.println("Total Pasivos Fijos                                                          " + z);
+		awa = (w + x) - (y + z);
+		owo = y + z;
+		System.out.println(
+				"TOTAL PASIVOS                                                                                     "
+						+ owo);
+		System.out.println(
+				"CAPITAL CONTABLE                                                                                  "
+						+ awa);
+		System.out.println(
+				"---------------------------------------------------------------------------------------------------------------------------");
 		System.out.println("Desea ordenar algun Activo o Pasivo");
 		System.out.println("1.Si");
 		System.out.println("2.No");
 		ag = Lector.nextInt();
+		while (ag <= 0 || ag >= 3) {
+			System.out.println("Porfavor introduzca un dato valido");
+			ag = Lector.nextInt();
+		}
 		switch (ag) {
 		case 1:
-			System.out.println("¿Qué desea ordenar?");
+			System.out.println("Que desea ordenar?");
 			System.out.println("1.Activos");
 			System.out.println("2.Pasivos");
-			pt = Lector.nextInt();
-			switch (pt) {
+			rt = Lector.nextInt();
+			while (rt <= 0 || rt >= 3) {
+				System.out.println("Porfavor introduzca un dato valido");
+				rt = Lector.nextInt();
+			}
+			switch (rt) {
 			case 1:
-				switch (rt) {
-				System.out.println("¿Qué desea ordenar?");
+				System.out.println("Que desea ordenar?");
 				System.out.println("1.Activos Circulantes");
 				System.out.println("2.Activos Fijos");
-			    rt = Lector.nextInt();
-			case 1:
-				
-				for(int i=1;i<acr.length;i++) {
-					as=i;
-					ab= acr[i];
-					while ((as>0) && (acr[as-1]> ab)) {
-						acr [as] = acr [as-1];
-						as--;
+				fg = Lector.nextInt();
+				while (fg <= 0 || fg >= 3) {
+					System.out.println("Porfavor introduzca un dato valido");
+					fg = Lector.nextInt();
+				}
+				switch (fg) {
+				case 1:
+					for (int i = 1; i < acr.length; i++) {
+						as = i;
+						ab = acr[i];
+						while ((as > 0) && (acr[as - 1] > ab)) {
+							acr[as] = acr[as - 1];
+							as--;
+						}
 					}
-				}
-				for(int ii=1;ii<acr.length;ii++) {
-					System.out.println(acr[ii]);
-				}
-			case 2:
-				
-				for(int i=1;i<acr.length;i++) {
-					as=i;
-					ab= afr[i];
-					while ((as>0) && (afr[as-1]> ab)) {
-						afr [as] = afr [as-1];
-						as--;
+					for (int ii = 1; ii < acr.length; ii++) {
+						System.out.println(acr[ii]);
 					}
+					break;
+				case 2:
+					for (int i = 1; i < afr.length; i++) {
+						as = i;
+						ab = afr[i];
+						while ((as > 0) && (afr[as - 1] > ab)) {
+							afr[as] = afr[as - 1];
+							as--;
+						}
+					}
+					for (int ii = 1; ii < afr.length; ii++) {
+						System.out.println(afr[ii]);
+					}
+					break;
 				}
-				for(int ii=1;ii<afr.length;ii++) {
-					System.out.println(afr[ii]);
-				}
-
+				break;
 			case 2:
-			
+				System.out.println("Que desea ordenar?");
+				System.out.println("1.Pasivos Circulantes");
+				System.out.println("2.Pasivos Fijos");
+				fg = Lector.nextInt();
+				while (fg <= 0 || fg >= 3) {
+					System.out.println("Porfavor introduzca un dato valido");
+					fg = Lector.nextInt();
+				}
+				switch (fg) {
+				case 1:
+					for (int i = 1; i < pcr.length; i++) {
+						as = i;
+						ab = pcr[i];
+						while ((as > 0) && (pcr[as - 1] > ab)) {
+							pcr[as] = pcr[as - 1];
+							as--;
+						}
+					}
+					for (int ii = 1; ii < pcr.length; ii++) {
+						System.out.println(pcr[ii]);
+					}
+					break;
+				case 2:
+					for (int i = 1; i < pfr.length; i++) {
+						as = i;
+						ab = pfr[i];
+						while ((as > 0) && (pfr[as - 1] > ab)) {
+							pfr[as] = pfr[as - 1];
+							as--;
+						}
+					}
+					for (int ii = 1; ii < pfr.length; ii++) {
+						System.out.println(pfr[ii]);
+					}
+					break;
+				}
+			}
 		case 2:
 			break;
 		}
-			}
-		
-			
-		for(int i=1;i<acr.length;i++) {
-			as=i;
-			ab= acr[i];
-			while ((as>0) && (acr[as-1]> ab)) {
-				acr [as] = acr [as-1];
-				as--;
-			}
-		}
-		for(int ii=1;ii<acr.length;ii++) {
-			System.out.println(acr[ii]);
-		}
+
 	}
 
-	
 	public void control() {
-		int s, o,cp;
+		int s, o, cp, ab, as, ag = 0, pt = 0, rt = 0, fg = 0;
 		int opcion = 0, opcion1 = 0;
 		String[] cv = { " ", "Compras", "Ventas", "Compra", "Venta" };
 		int a[] = new int[999];
@@ -367,14 +406,44 @@ public class App {
 					System.out.println("Se compraron " + a[o3] + " unidades de " + m[o3]);
 					System.out.println("El costo de " + m[o3] + " por unidad es " + b[o3]);
 					System.out.println("El costo total de " + m[o3] + " es " + a[o3] * b[o3]);
-					cp=cp-(a[o3] * b[o3]);
+					cp = cp - (a[o3] * b[o3]);
 					System.out.println();
 				}
-				System.out.println("El valor actual de su capital es "+cp);
+				System.out.println("El valor actual de su capital es " + cp);
+
+				System.out.println("Que desea ordenar sus compras?");
+				System.out.println("1.Si");
+				System.out.println("2.No");
+				fg = Lector.nextInt();
+				while (fg <= 0 || fg >= 3) {
+					System.out.println("Porfavor introduzca un dato valido");
+					fg = Lector.nextInt();
+				}
+				switch (fg) {
+				case 1:
+					System.out.println("Orden de compras");
+					System.out.println();
+					for (int i = 1; i < s; i++) {
+						as = i;
+						ab = (a[i] * b[i]);
+						while ((as > 0) && (a[as - 1] > ab)) {
+							a[as] = a[as - 1];
+							as--;
+						}
+					}
+					for (int ii = 1; ii < s; ii++) {
+						System.out.println((a[ii] * b[ii]));
+					}
+					System.out.println();
+					break;
+				case 2:
+
+					break;
+				}
 				break;
 			case 2:
 				for (int o1 = 1; o1 < s; o1++) {
-					System.out.println("Introduzca la cantidad de " + cv[3] +" "+ o1);
+					System.out.println("Introduzca la cantidad de " + cv[3] + " " + o1);
 					a[o1] = Lector.nextInt();
 
 					System.out.println("Introduzca el costo por unidad de " + cv[3] + " " + o1);
@@ -384,11 +453,40 @@ public class App {
 					System.out.println("Se compraron " + a[o3] + " unidades de " + cv[3]);
 					System.out.println("El costo de " + cv[3] + " por unidad es " + b[o3]);
 					System.out.println("El costo total de " + cv[3] + " es " + a[o3] * b[o3]);
-					cp=cp-(a[o3] * b[o3]);
+					cp = cp - (a[o3] * b[o3]);
 					System.out.println();
 				}
-				System.out.println("El valor actual de su capital es "+cp);
-				break;
+				System.out.println("El valor actual de su capital es " + cp);
+				System.out.println("Que desea ordenar sus compras?");
+				System.out.println("1.Si");
+				System.out.println("2.No");
+				fg = Lector.nextInt();
+				while (fg <= 0 || fg >= 3) {
+					System.out.println("Porfavor introduzca un dato valido");
+					fg = Lector.nextInt();
+				}
+				switch (fg) {
+				case 1:
+					System.out.println("Orden de compras");
+					System.out.println();
+					for (int i = 1; i < s; i++) {
+						as = i;
+						ab = (a[i] * b[i]);
+						while ((as > 0) && (a[as - 1] > ab)) {
+							a[as] = a[as - 1];
+							as--;
+						}
+					}
+					for (int ii = 1; ii < s; ii++) {
+						System.out.println((a[ii] * b[ii]));
+					}
+					System.out.println();
+					break;
+				case 2:
+
+					break;
+				}
+
 			}
 			break;
 		case 2:
@@ -421,47 +519,109 @@ public class App {
 					System.out.println("Se vendieron " + a[o3] + " unidades de " + m[o3]);
 					System.out.println("La venta de " + m[o3] + " por unidad es " + b[o3]);
 					System.out.println("La venta total de " + m[o3] + " es " + a[o3] * b[o3]);
-					cp=cp+(a[o3] * b[o3]);
+					cp = cp + (a[o3] * b[o3]);
 					System.out.println();
 				}
-				System.out.println("El valor actual de su capital es "+cp);
+				System.out.println("El valor actual de su capital es " + cp);
+				System.out.println("Que desea ordenar sus ventas?");
+				System.out.println("1.Si");
+				System.out.println("2.No");
+				fg = Lector.nextInt();
+				while (fg <= 0 || fg >= 3) {
+					System.out.println("Porfavor introduzca un dato valido");
+					fg = Lector.nextInt();
+				}
+				switch (fg) {
+				case 1:
+					System.out.println("Orden de ventas");
+					System.out.println();
+					for (int i = 1; i < s; i++) {
+						as = i;
+						ab = (a[i] * b[i]);
+						while ((as > 0) && (a[as - 1] > ab)) {
+							a[as] = a[as - 1];
+							as--;
+						}
+					}
+					for (int ii = 1; ii < s; ii++) {
+						System.out.println((a[ii] * b[ii]));
+					}
+					System.out.println();
+					break;
+					
+				case 2:
+					break;
+				}
 				break;
-			case 2:
-				for (int o1 = 1; o1 < s; o1++) {
-					System.out.println("Introduzca la cantidad de " + cv[4] +" "+ o1);
-					a[o1] = Lector.nextInt();
+				case 2:
+					for (int o1 = 1; o1 < s; o1++) {
+						System.out.println("Introduzca la cantidad de " + cv[4] + " " + o1);
+						a[o1] = Lector.nextInt();
 
-					System.out.println("Introduzca la venta por unidad de " + cv[4] + " " + o1);
-					b[o1] = Lector.nextInt();
+						System.out.println("Introduzca la venta por unidad de " + cv[4] + " " + o1);
+						b[o1] = Lector.nextInt();
+					}
+					for (int o3 = 1; o3 < s; o3++) {
+						System.out.println("Se vendieron " + a[o3] + " unidades de " + cv[4]);
+						System.out.println("La venta de " + cv[4] + " por unidad es " + b[o3]);
+						System.out.println("La venta total de " + cv[4] + " es " + a[o3] * b[o3]);
+						cp = cp + (a[o3] * b[o3]);
+						System.out.println();
+					}
+					System.out.println("El valor actual de su capital es " + cp);
+					System.out.println("Que desea ordenar sus ventas?");
+					System.out.println("1.Si");
+					System.out.println("2.No");
+					fg = Lector.nextInt();
+					while (fg <= 0 || fg >= 3) {
+						System.out.println("Porfavor introduzca un dato valido");
+						fg = Lector.nextInt();
+					}
+					switch (fg) {
+					case 1:
+						System.out.println("Orden de ventas");
+						System.out.println();
+						for (int i = 1; i < s; i++) {
+							as = i;
+							ab = (a[i] * b[i]);
+							while ((as > 0) && (a[as - 1] > ab)) {
+								a[as] = a[as - 1];
+								as--;
+							}
+						}
+						for (int ii = 1; ii < s; ii++) {
+							System.out.println((a[ii] * b[ii]));
+						}
+						System.out.println();
+
+						break;
+					case 2:
+						break;
+					}
+					break;
+					}
+			break;
 				}
-				for (int o3 = 1; o3 < s; o3++) {
-					System.out.println("Se vendieron " + a[o3] + " unidades de " + cv[4]);
-					System.out.println("La venta de " + cv[4] + " por unidad es " + b[o3]);
-					System.out.println("La venta total de " + cv[4] + " es " + a[o3] * b[o3]);
-					cp=cp+(a[o3] * b[o3]);
-					System.out.println();
-				} 
-				System.out.println("El valor actual de su capital es "+cp);
-				
-				break;
+		
 			}
-		}
-	}
+		
+	
 
 	public static void main(String[] args) {
 		App sandia = new App();
-		String[] za = { " ", "Control de compras y ventas", "Balance General", "Estado de resultado", "Variacion de capital", "Salir" };
-		int owo = 0,ono =0;
+		String[] za = { " ", "Control de compras y ventas", "Balance General", "Estado de resultado",
+				"Variacion de capital", "Salir" };
+		int owo = 0, ono = 0;
 		int fq = 0;
 		int opcion = 0;
 		System.out.println("");
 		System.out.println("APP PARA TIENDAS DE ROPA");
 		System.out.println("");
 		try {
-		sandia.nombreempresa();
-	} catch (InputMismatchException e) {
-		System.out.println("Solo se registraran las 2 primeras palabras que se le pidieron");
-	}
+			sandia.nombreempresa();
+		} catch (InputMismatchException e) {
+			System.out.println("Solo se registraran las 2 primeras palabras que se le pidieron");
+		}
 
 		do {
 			try {
@@ -473,7 +633,7 @@ public class App {
 						System.out.println(wa + "." + za[wa]);
 					}
 					opcion = Lector.nextInt();
-					while (opcion<=0 || opcion >=6) {
+					while (opcion <= 0 || opcion >= 6) {
 						System.out.println("Porfavor introduzca un dato valido");
 						opcion = Lector.nextInt();
 					}
@@ -496,7 +656,7 @@ public class App {
 						System.out.println("-Jenn <3-");
 						return;
 					}
-					while (opcion<=0 || opcion >=10) {
+					while (opcion <= 0 || opcion >= 10) {
 						System.out.println("Porfavor introduzca un dato valido");
 						opcion = Lector.nextInt();
 					}
@@ -508,9 +668,7 @@ public class App {
 				Lector.next();
 			}
 		} while (fq == 0);
-		
-		
+
 	}
 
 }
-
