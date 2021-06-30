@@ -13,17 +13,60 @@ public class App {
 	public void nombreempresa() {
 		String t;
 		try {
-		System.out.println("Como desea llamar su empresa");
+		System.out.println("Como desea llamar su empresa (Porfavor introduzca solo 2 palabras)");
+		System.out.println("En algun dado caso que tenga 3 o mas palabras solo se usaran 2 y se reiniciara el programa");
+		System.out.println("El programa se reiniciara conforme las palabras que introduzca de mas");
 		bn[1]= Lector.next();
 		bn[2]= Lector.next();
 			
-		} catch (InputMismatchException bn) {
-			System.out.println("Solo puede introducir dos palabras");
-			Lector.next();
+		} catch (InputMismatchException e) {
+			System.out.println("Solo se registraran las 2 primeras palabras que se le pidieron");
 		}
 	}
 	
+	public void variacion() {
+		int cs,utt,dv,utr;
+		boolean Continuar=false;
+		do {
+		try {
+			
 		
+		System.out.println("App de variacion de capital");
+		System.out.println("Introduzca el Capital Social");
+		cs=Lector.nextInt();
+		System.out.println("Introduzca la utilidad del ejercicio");
+		utt=Lector.nextInt();
+		System.out.println("Introduzca el total de dividendos");
+		dv=Lector.nextInt();
+		utr=(cs+utt)-(dv);
+		
+		
+		System.out.println("El valor de utilidades retenidas es "+utr);
+		System.out.println("");
+		System.out.println("         "+ bn[1]+" " + bn[2]+ "      " );
+		System.out.println("-----------------------------------");
+		System.out.println("");
+		System.out.println("Capital Social          "+ cs);
+		System.out.println("");
+		System.out.println("Utilidad del ejercicio  "+ utt);
+		System.out.println("");
+		System.out.println("Dividendos              "+ dv);
+		System.out.println("");
+		System.out.println("Utilidades retenidas    "+ utr);
+		System.out.println("");
+		System.out.println("-----------------------------------");
+		System.out.println("Variacion de capital    "+ (utr-cs));
+		System.out.println("-----------------------------------");
+}catch (InputMismatchException e1) {
+	System.out.println("Por favor, ingrese solo numeros enteros");
+	  Lector.next();
+	  System.out.println();
+	  Continuar = true;
+}
+}while (Continuar);
+		
+		}
+	
 	public void resultado() {
 		String [] vt = { " ", "ventas     ", "costos"};
 		int d, c,e,g,f,j;
@@ -54,12 +97,12 @@ public class App {
 			gar[r]=Lector.nextInt();
 		}
 		c=gar[1]+gar[2];
-		System.out.println("Los gastos generales es de "+ c );
+		System.out.println("El valor de los gastos generales es de "+ c );
 		System.out.println();
 		e=d-c;
 		System.out.println("La EBITDA es de "+ e);
 		System.out.println();
-		System.out.println("Seguimos con los gastos");
+		System.out.println("Seguimos con amortizacion");
 		System.out.println();
 		System.out.println("Porfavor ingrese los datos que se le solicitan");
 		for(int r=1;r<am.length;r++) {
@@ -69,7 +112,7 @@ public class App {
 		g= e-amr[1];
 		System.out.println("El resultado de explotacion es de "+ g);
 		System.out.println();
-	    System.out.println("Seguimos con los gastos");
+	    System.out.println("Seguimos con los intereses");
 	    System.out.println();
 		System.out.println("Porfavor ingrese los datos que se le solicitan");
 		for(int r=1;r<in.length;r++) {
@@ -79,7 +122,7 @@ public class App {
 		f= g-inr[1];
 		System.out.println("El resultado antes de impuesto es de "+ f);
 		System.out.println();
-	    System.out.println("Seguimos con los gastos");
+	    System.out.println("Seguimos con los impuestos");
 	    System.out.println();
 		System.out.println("Porfavor ingrese los datos que se le solicitan");
 		for(int r=1;r<im.length;r++) {
@@ -90,22 +133,22 @@ public class App {
 		System.out.println("El resultado de la utilidad neta es de "+ j);
 		
 		
-		System.out.println("                                   ");
-		System.out.println("                                   ");
+		System.out.println("         "+ bn[1]+" " + bn[2]+ "      " );
+		System.out.println("-----------------------------------");
 		System.out.println("");
-		System.out.println("Ventas    " + vtr[1]);
-		System.out.println("Costos    " + vtr[2]);
+		System.out.println("Ventas                    " + vtr[1]);
+		System.out.println("Costos                    " + vtr[2]);
+		System.out.println("-----------------------------------");
+		System.out.println("Utilidad Bruta            " + d);
+		System.out.println("Gastos Generales          " + gar[1]);
 		System.out.println("                   ");
-		System.out.println("Utilidad Bruta    " + d);
-		System.out.println("Gastos Generales   " + gar[1]);
-		System.out.println("                   ");
-		System.out.println("EBITDA  " + e);
-		System.out.println("Amortizacion   " + amr[1]);
-		System.out.println("                   ");
+		System.out.println("EBITDA                    " + e);
+		System.out.println("Amortizacion              " + amr[1]);
+		System.out.println("-----------------------------------");
 		System.out.println("Resultado de explotacion  " + g);
-		System.out.println("Impuestos   " + imr[1]);
-		System.out.println("                   ");
-		System.out.println("Utilidad neta  " + j);
+		System.out.println("Impuestos                 " + imr[1]);
+		System.out.println("-----------------------------------");
+		System.out.println("Utilidad neta             " + j);
 		
 	}
 	public void balance() {
@@ -215,13 +258,15 @@ public class App {
 	
 	
 	public void control() {
-		int s, o;
+		int s, o,cp;
 		int opcion = 0, opcion1 = 0;
 		String[] cv = { " ", "Compras", "Ventas", "Compra", "Venta" };
 		int a[] = new int[999];
 		int b[] = new int[999];
 		String m[] = new String[999];
 		System.out.println("Control de compras y ventas");
+		System.out.println("Ingrese su capital para iniciar");
+		cp = Lector.nextInt();
 		System.out.println("1.Compras");
 		System.out.println("2.Ventas");
 		o = Lector.nextInt();
@@ -260,8 +305,11 @@ public class App {
 					System.out.println("Se compraron " + a[o3] + " unidades de " + m[o3]);
 					System.out.println("El costo de " + m[o3] + " por unidad es " + b[o3]);
 					System.out.println("El costo total de " + m[o3] + " es " + a[o3] * b[o3]);
+					cp=cp-(a[o3] * b[o3]);
 					System.out.println();
 				}
+				System.out.println("El valor actual de su capital es "+cp);
+				break;
 			case 2:
 				for (int o1 = 1; o1 < s; o1++) {
 					System.out.println("Introduzca la cantidad de " + cv[3] +" "+ o1);
@@ -274,8 +322,11 @@ public class App {
 					System.out.println("Se compraron " + a[o3] + " unidades de " + cv[3]);
 					System.out.println("El costo de " + cv[3] + " por unidad es " + b[o3]);
 					System.out.println("El costo total de " + cv[3] + " es " + a[o3] * b[o3]);
+					cp=cp-(a[o3] * b[o3]);
 					System.out.println();
 				}
+				System.out.println("El valor actual de su capital es "+cp);
+				break;
 			}
 			break;
 		case 2:
@@ -308,8 +359,11 @@ public class App {
 					System.out.println("Se vendieron " + a[o3] + " unidades de " + m[o3]);
 					System.out.println("La venta de " + m[o3] + " por unidad es " + b[o3]);
 					System.out.println("La venta total de " + m[o3] + " es " + a[o3] * b[o3]);
+					cp=cp+(a[o3] * b[o3]);
 					System.out.println();
 				}
+				System.out.println("El valor actual de su capital es "+cp);
+				break;
 			case 2:
 				for (int o1 = 1; o1 < s; o1++) {
 					System.out.println("Introduzca la cantidad de " + cv[4] +" "+ o1);
@@ -322,8 +376,10 @@ public class App {
 					System.out.println("Se vendieron " + a[o3] + " unidades de " + cv[4]);
 					System.out.println("La venta de " + cv[4] + " por unidad es " + b[o3]);
 					System.out.println("La venta total de " + cv[4] + " es " + a[o3] * b[o3]);
+					cp=cp+(a[o3] * b[o3]);
 					System.out.println();
 				} 
+				System.out.println("El valor actual de su capital es "+cp);
 				
 				break;
 			}
@@ -332,12 +388,66 @@ public class App {
 
 	public static void main(String[] args) {
 		App sandia = new App();
-		sandia.resultado();
+		String[] za = { " ", "Control de compras y ventas", "Balance General", "Estado de resultado", "Variacion de capital", "Salir" };
+		int owo = 0,ono =0;
+		int fq = 0;
+		int opcion = 0;
+		System.out.println("");
+		System.out.println("APP PARA TIENDAS DE ROPA");
+		System.out.println("");
+		try {
 		sandia.nombreempresa();
-		sandia.balance();
+	} catch (InputMismatchException e) {
+		System.out.println("Solo se registraran las 2 primeras palabras que se le pidieron");
+	}
+
+		do {
+			try {
+				do {
+
+					System.out.println("Bienvenido al programa");
+					System.out.println("Que app desea usar?");
+					for (int wa = 1; wa < 6; wa++) {
+						System.out.println(wa + "." + za[wa]);
+					}
+					opcion = Lector.nextInt();
+					while (opcion<=0 || opcion >=6) {
+						System.out.println("Porfavor introduzca un dato valido");
+						opcion = Lector.nextInt();
+					}
+					switch (opcion) {
+
+					case 1:
+						sandia.control();
+						break;
+					case 2:
+						sandia.balance();
+						break;
+					case 3:
+						sandia.resultado();
+						break;
+					case 4:
+						sandia.variacion();
+						break;
+					case 5:
+						System.out.println("Gracias por utilizar nuestro programa!!");
+						System.out.println("-Jenn <3-");
+						return;
+					}
+					while (opcion<=0 || opcion >=10) {
+						System.out.println("Porfavor introduzca un dato valido");
+						opcion = Lector.nextInt();
+					}
+				} while (fq == 0);
+			} catch (InputMismatchException e) {
+				System.out.println("Solo puede introducir numeros y/o lo solicitado");
+				System.out.println("AVISO: Se reiniciara el programa");
+				System.out.println("");
+				Lector.next();
+			}
+		} while (fq == 0);
 		
 		
-		//sandia.control();
 	}
 
 }
